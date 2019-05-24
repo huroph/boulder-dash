@@ -36,7 +36,7 @@ public class HelloWorld extends Entity {
 	 * Instantiates a new hello world.
 	 */
 	public HelloWorld() {
-		this(0, "", "");
+		this(0	, "", "");
 	}
 
 	/**

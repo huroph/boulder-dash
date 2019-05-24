@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import entity.HelloWorld;
 
+
 /**
  * The Class DAOHelloWorld.
  *
@@ -83,6 +84,10 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 		}
 		return null;
 	}
+
+
+	@Override
+	public level dash
 
 	/*
 	 * (non-Javadoc)

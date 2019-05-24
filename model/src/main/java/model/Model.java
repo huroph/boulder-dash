@@ -4,81 +4,39 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
-import entity.HelloWorld;
+import entity.level_dash;
 
-/**
- * The Class Model.
- *
- * @author Jean-Aymeric Diet
- */
 public final class Model extends Observable implements IModel {
 
-	/** The helloWorld. */
-	private HelloWorld helloWorld;
+	private level_dash level_dash;
+	private int levelID = 1;
 
-	/**
-	 * Instantiates a new model.
-	 */
+
 	public Model() {
-		this.helloWorld = new HelloWorld();
+
+		this.loadlevel_dash(levelID);
 	}
 
-	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
+
+	public level_dash getlevel_dash() {
+		return this.level_dash;
 	}
 
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
+	private void setlevel_dash(final level_dash level_dash) {
+		this.level_dash = level_dash;
 		this.setChanged();
 		this.notifyObservers();
 	}
 
-	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadHelloWorld(final String code) {
+	public void loadlevel_dash(final int id) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOlevel_dash daolevel_dash = new DAOlevel_dash(DBConnection.getInstance().getConnection());
+			this.setlevel_dash(DAOlevel_dash.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
 	public Observable getObservable() {
 		return this;
 	}
